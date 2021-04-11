@@ -4,7 +4,6 @@ import { CloseOutline } from '@styled-icons/evaicons-outline'
 import LinkWrapper from 'components/LinkWrapper'
 
 import * as S from './styles'
-import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 
 type ImageProps = {
@@ -26,10 +25,6 @@ export type PlacesTemplateProps = {
 }
 
 export default function PlacesTemplate({ place }: PlacesTemplateProps) {
-  const router = useRouter()
-
-  if (router.isFallback) return null
-
   return (
     <>
       <NextSeo
