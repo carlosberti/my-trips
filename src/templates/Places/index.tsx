@@ -5,6 +5,7 @@ import LinkWrapper from 'components/LinkWrapper'
 
 import * as S from './styles'
 import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
 
 type ImageProps = {
   url: string
@@ -18,6 +19,7 @@ export type PlacesTemplateProps = {
     name: string
     description?: {
       html: string
+      text: string
     }
     gallery: ImageProps[]
   }
@@ -30,6 +32,13 @@ export default function PlacesTemplate({ place }: PlacesTemplateProps) {
 
   return (
     <>
+      <NextSeo
+        title={`${place.name} - My Trips`}
+        description={
+          place.description?.text ||
+          'A simple project to show in a map the places that i went and show more informations and photo when clicked.'
+        }
+      />
       <LinkWrapper href="/">
         <CloseOutline size={32} aria-label="Go back to map" />
       </LinkWrapper>
